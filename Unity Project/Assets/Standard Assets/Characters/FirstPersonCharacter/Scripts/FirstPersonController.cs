@@ -256,5 +256,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
+
+        public void SetMouseLook(bool value)
+        {
+            if (value)
+            {
+                m_MouseLook.XSensitivity = 2f;
+                m_MouseLook.YSensitivity = 2f;
+            } else
+            {
+                m_MouseLook.XSensitivity = 0f;
+                m_MouseLook.YSensitivity = 0f;
+            }
+            m_MouseLook.SetCursorLock(value);
+        }
     }
 }

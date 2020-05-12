@@ -21,6 +21,10 @@ public class StateOptions : UiState
         view.buttonBack.onClick.AddListener(ClickBack);
         view.sampleDropdown.onValueChanged.AddListener(DropdownValueChanged);
         view.background.SetActive(backgroundVisible);
+
+        // use OptionsBehaviour to listen to Unity events (updates, keypresses etc.)
+        OptionsBehaviour optionsBehaviour = view.gameObject.AddComponent<OptionsBehaviour>();
+        optionsBehaviour.state = this;
     }
 
     public override void Hide()
@@ -44,7 +48,7 @@ public class StateOptions : UiState
         Debug.Log("Now selected: " + newValue);
     }
 
-    private void ClickBack()
+    public void ClickBack()
     {
         GameManager.Instance.PopState(this);
     }

@@ -2,11 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class StatePlay : UiState
 {
     private ViewPlay view;
-    private GameObject gameWorld;
+    private GameObject gameWorldInstance;
+    private ViewPlayGameWorld viewGameWorld;
+    private bool mouseLook = false;
 
     public override void Show()
     {
@@ -14,18 +17,36 @@ public class StatePlay : UiState
         view = GameManager.Instance.InstantiateUi<ViewPlay>("Play");
 
         string gameWorldPath = "Prefabs/PlayGameWorld";
-        gameWorld = Resources.Load<GameObject>(gameWorldPath);
+        GameObject gameWorld = Resources.Load<GameObject>(gameWorldPath);
         if (gameWorld == null)
         { 
             throw new Exception("Missing play world: " + gameWorldPath);
         }
-        UnityEngine.Object.Instantiate(gameWorld);
+        gameWorldInstance = UnityEngine.Object.Instantiate(gameWorld);
+
+        viewGameWorld = gameWorldInstance.GetComponent<ViewPlayGameWorld>();
+
+        // use PlayBehaviour to listen to Unity events (updates, keypresses etc.)
+        PlayBehaviour playBehaviour = gameWorldInstance.AddComponent<PlayBehaviour>();
+        playBehaviour.state = this;
     }
 
     public override void Hide()
     {
         UnityEngine.Object.Destroy(view.gameObject);
-        UnityEngine.Object.Destroy(gameWorld);
+        UnityEngine.Object.Destroy(gameWorldInstance);
         base.Hide();
+    }
+
+    public void UpdateFps(float thisFrameFps)
+    {
+        // TODO: we could average last 1 second or such measurements
+        view.textFps.text = "FPS: " + thisFrameFps;
+    }
+
+    public void ToggleMouseLook()
+    {
+        mouseLook = !mouseLook;
+        viewGameWorld.fpsController.SetMouseLook(mouseLook);
     }
 }

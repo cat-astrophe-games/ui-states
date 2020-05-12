@@ -398,8 +398,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3145212615664044164}
+  - component: {fileID: 6817666569848499929}
   m_Layer: 0
-  m_Name: GameWorld
+  m_Name: PlayGameWorld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -424,6 +425,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6817666569848499929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3145212615664044165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954f46f206b4cfc40b6640fa23b093a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fpsController: {fileID: 3145212615828442112}
 --- !u!1 &3145212615841744293
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,3 +722,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3145212615822016320}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3145212615828442112 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 3}
+  m_PrefabInstance: {fileID: 3145212615822016320}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ec5cf00ca181d45a42ba1870e148c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

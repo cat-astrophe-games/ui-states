@@ -82,4 +82,19 @@ public class GameManager : MonoBehaviour
         stateStack.RemoveAt(stateStack.Count - 1);
         previousState.Hide();
     }
+
+    /* Current top-most state, or null if none. */
+    public UiState TopMostState
+    {
+        get
+        {
+            if (stateStack.Count == 0)
+            {
+                return null;
+            } else
+            {
+                return stateStack.Last();
+            }
+        }
+    }
 }
