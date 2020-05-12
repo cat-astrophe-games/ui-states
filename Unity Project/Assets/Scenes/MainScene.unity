@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 1036938423}
   - component: {fileID: 1036938422}
   m_Layer: 0
-  m_Name: StartGame
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a8634c30c502bc409b93a4b5b8bd05a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainCanvas: {fileID: 1644195054}
 --- !u!4 &1036938423
 Transform:
   m_ObjectHideFlags: 0

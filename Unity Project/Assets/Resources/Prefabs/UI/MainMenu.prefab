@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 704484799523996574}
   - component: {fileID: 704484799523996575}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -316,7 +316,6 @@ GameObject:
   - component: {fileID: 704484799589328747}
   - component: {fileID: 704484799589328748}
   - component: {fileID: 704484799589328749}
-  - component: {fileID: 704484799589328750}
   m_Layer: 5
   m_Name: ButtonOptions
   m_TagString: Untagged
@@ -423,18 +422,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &704484799589328750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 704484799589328736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6753ab1811e9c3a46920192e76344126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &704484799979647961
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,7 +548,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704484799979647961}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6753ab1811e9c3a46920192e76344126, type: 3}
   m_Name: 
@@ -575,8 +562,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 704484800293129900}
-  - component: {fileID: 8771156788529562147}
-  - component: {fileID: 685901068125101630}
+  - component: {fileID: 4153740037812807829}
+  - component: {fileID: 6890675492893371128}
+  - component: {fileID: 4843409674396706593}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -604,10 +592,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -230.1, y: -28.3}
-  m_SizeDelta: {x: 761.2, y: 1066.4}
+  m_AnchoredPosition: {x: -261.9, y: -47.4}
+  m_SizeDelta: {x: 824.8, y: 1028.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!223 &8771156788529562147
+--- !u!223 &4153740037812807829
 Canvas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -628,7 +616,7 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &685901068125101630
+--- !u!114 &6890675492893371128
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -645,3 +633,17 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4843409674396706593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704484800293129901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2e292f861b5a044ebe7549b988af7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonPlay: {fileID: 704484799979647782}
+  buttonOptions: {fileID: 704484799589328749}
