@@ -43,8 +43,8 @@ public class GameManager : MonoBehaviour
         }
 
         RectTransform viewTransform = viewGameObject.transform as RectTransform;
-//        viewTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1f);
-//        viewTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1f);
+        viewTransform.offsetMin = Vector2.zero;
+        viewTransform.offsetMax = Vector2.zero;
 
         return view;
     }
