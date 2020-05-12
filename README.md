@@ -1,16 +1,10 @@
 # Demo of using and designing user interface states
 
-Demo how to design a game with multiple UI states, keeping each UI state in a separate prefab.
+Demo how to design a game with multiple UI states,
+- keeping each UI state in a separate prefab,
+- and handling each UI state by a pair of classes `ViewXxx` and `StateXxx`
 
-Also a demo of simple UI state management in C#,
-
-- each UI state has a `ViewXxx` (descendant of `MonoBehaviour`), a "contract" between UI designer and programmer.
-
-- each UI state has a `StateXxx` (descendant of `UiState`, not `MonoBehaviour`) that contains the logic of this state. If you like MVC terminology, this is the "controller" code.
-
-- singleton `GameManager.Instance` manages the states, calling their `Show` / `Hide` methods, when you do `SetState`, `PushState`, `PopState`.
-
-- The code is just a starting point, you can probably enhance it as needed. E.g. implement `UiState.Pause`, `UiState.Resume` etc.
+## UI states in prefabs
 
 In this example, we have 3 UI states:
 
@@ -24,7 +18,7 @@ The goal is to split your UI design into multiple files.
 
 Details:
 
-- The main scene should be as simple as possible. Ideally, just a single GameObject that runs a single script like `StartGame`. Additional "central" stuff is OK too (like Unity canvas and event handler).
+- The main scene should be as simple as possible. Ideally, just a single GameObject that runs a single script like `GameManager`. Additional "central" stuff is OK too (like Unity canvas and event handler).
 
 - Avoid a common problem when editing non-trivial Unity projects: it is too easy to create a main scene with lots of stuff. Editing such large scene is risky (it's easy to break something you didn't even think you could break, since the scene contains too much stuff). And it's prone to version-control conflicts.
 
@@ -38,10 +32,22 @@ Details:
 
 There are many variations of this approach, I'm sure. Treat this only as an example.
 
-In particular, it is useful to tweak background handling:
+One idea for enhancement: It may be useful to tweak background handling:
 
 - place the `Background` GameObject in the scene, too,
 
 - and then design all UI states as transparent,
 
 - and from code, toggle the `Background` visibility when entering/exiting proper state.
+
+## Usage from code
+
+Simple UI state management in C#:
+
+- each UI state has a `ViewXxx` (descendant of `MonoBehaviour`), a "contract" between UI designer and programmer.
+
+- each UI state has a `StateXxx` (descendant of `UiState`, not `MonoBehaviour`) that contains the logic of this state. If you like MVC terminology, this is the "controller" code.
+
+- singleton `GameManager.Instance` manages the states, calling their `Show` / `Hide` methods, when you do `SetState`, `PushState`, `PopState`.
+
+- The code is just a starting point, you can probably enhance it as needed. E.g. implement `UiState.Pause`, `UiState.Resume` etc.
