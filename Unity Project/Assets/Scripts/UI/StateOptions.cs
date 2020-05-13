@@ -16,8 +16,8 @@ public class StateOptions : UiState
     {
         base.Show();
         view = GameManager.Instance.InstantiateUi<ViewOptions>("Options");
-        view.buttonOption1.onClick.AddListener(ClickOption1);
-        view.buttonOption2.onClick.AddListener(ClickOption2);
+        view.buttonMoveRight.onClick.AddListener(ClickMoveRight);
+        view.buttonMoveLeft.onClick.AddListener(ClickMoveLeft);
         view.buttonBack.onClick.AddListener(ClickBack);
         view.sampleDropdown.onValueChanged.AddListener(DropdownValueChanged);
         view.background.SetActive(backgroundVisible);
@@ -33,14 +33,14 @@ public class StateOptions : UiState
         base.Hide();
     }
 
-    private void ClickOption1()
+    private void ClickMoveRight()
     {
-        Debug.Log("Option 1");
+        view.moveController.SetTrigger("right");
     }
 
-    private void ClickOption2()
+    private void ClickMoveLeft()
     {
-        Debug.Log("Option 2");
+        view.moveController.SetTrigger("left");
     }
 
     private void DropdownValueChanged(int newValue)
